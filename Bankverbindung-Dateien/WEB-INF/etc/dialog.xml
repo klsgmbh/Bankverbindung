@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<dialog name="Bankverbindung" generate-roadmap="true">
+  <options>
+    <option name="readyingSubforms">false</option>
+  </options>
+  <page name="Bankverbindung" path="bankverbindung" id="bankverbindung" model-src="Bankverbindung.853">
+    <title>Bankverbindung</title>
+    <roadmap-title>Bankverbindung</roadmap-title>
+    <documentation><![CDATA[<p>G00000350</p>]]></documentation>
+    <tooltip><![CDATA[<p>G00000350</p>]]></tooltip>
+    <field name="F00000013" id="f00000013" type="text" required="true" read-only="false">
+      <label label-style="prefix">Familienname</label>
+      <title>Familienname</title>
+    </field>
+    <field name="F00000045" id="f00000045" type="text" required="true" read-only="false">
+      <label label-style="prefix">Vorname</label>
+      <title>Vorname</title>
+    </field>
+    <field name="bank" id="bank" type="text" required="true" read-only="false">
+      <label label-style="prefix">Name und Sitz der Bank</label>
+      <title>Bank</title>
+    </field>
+    <field name="F00000106h" id="f00000106h" type="text" required="true" aux="true" read-only="false" validation-expression="isValidIBAN(value.replace(/\s+/g, &quot;&quot;))">
+      <label label-style="prefix">IBAN</label>
+      <title>IBAN</title>
+      <documentation><![CDATA[<p>Geben Sie die IBAN (<span lang="en">International Bank Account Number</span>) Ihres Kontos an. <b>Definition:</b><br/>Die IBAN (<span lang="en">International Bank Account Number</span>) ist eine internationale, standardisierte und weltweit eindeutige Notation für ein Bankkonto. Die Notation wird durch die <abbr title="Internationale Organisation für Normung">ISO</abbr>-Norm <abbr title="Internationale Organisation für Normung">ISO</abbr> 13616:2003 beschrieben.</p>]]></documentation>
+      <tooltip><![CDATA[<p>Geben Sie die IBAN (<span lang="en">International Bank Account Number</span>) Ihres Kontos an. <b>Definition:</b><br/>Die IBAN (<span lang="en">International Bank Account Number</span>) ist eine internationale, standardisierte und weltweit eindeutige Notation für ein Bankkonto. Die Notation wird durch die <abbr title="Internationale Organisation für Normung">ISO</abbr>-Norm <abbr title="Internationale Organisation für Normung">ISO</abbr> 13616:2003 beschrieben.</p>]]></tooltip>
+      <validation-message>Bitte geben Sie eine gültige IBAN ein.</validation-message>
+    </field>
+    <field name="F00000107h" id="f00000107h" type="text" required="true" aux="true" read-only="false" validation-expression="isValidBIC(value.replace(/\s+/g, &quot;&quot;))">
+      <label label-style="prefix">BIC</label>
+      <title>BIC</title>
+      <documentation><![CDATA[<p>Geben Sie den BIC (<span lang="en">Bank Identifier Code</span>) Ihres Geldinsitutes an.<br/><b>Definition:</b><br/>Der BIC (<span lang="en">Bank Identifier Code</span>, auch <span lang="en"><abbr title="Society for Worldwide Interbank Financial Telecommunication">SWIFT</abbr></span>-Code oder <span lang="en"><abbr title="Society for Worldwide Interbank Financial Telecommunication">SWIFT</abbr></span>-Adresse genannt) ist ein nach <abbr title="Internationale Organisation für Normung">ISO</abbr> 9362 international standardisierter Bankcode, den weltweit jedes direkt oder indirekt teilnehmende Geldinstitut eindeutig identifiziert werden kann.</p>]]></documentation>
+      <tooltip><![CDATA[<p>Geben Sie den BIC (<span lang="en">Bank Identifier Code</span>) Ihres Geldinsitutes an.<br/><b>Definition:</b><br/>Der BIC (<span lang="en">Bank Identifier Code</span>, auch <span lang="en"><abbr title="Society for Worldwide Interbank Financial Telecommunication">SWIFT</abbr></span>-Code oder <span lang="en"><abbr title="Society for Worldwide Interbank Financial Telecommunication">SWIFT</abbr></span>-Adresse genannt) ist ein nach <abbr title="Internationale Organisation für Normung">ISO</abbr> 9362 international standardisierter Bankcode, den weltweit jedes direkt oder indirekt teilnehmende Geldinstitut eindeutig identifiziert werden kann.</p>]]></tooltip>
+      <validation-message>Bitte geben Sie eine gültige BIC ein.</validation-message>
+    </field>
+    <field name="f00000106" id="f00000106" type="computed" required="false" read-only="false" value-expression="myForm.F00000106h.replace(/\s+/g, &quot;&quot;)">
+      <label label-style="prefix">F00000106:</label>
+      <title>F00000106</title>
+    </field>
+    <field name="f00000107" id="f00000107" type="computed" required="false" read-only="false" value-expression="myForm.F00000107h.replace(/\s+/g, &quot;&quot;)">
+      <label label-style="prefix">F00000107:</label>
+      <title>F00000107</title>
+    </field>
+  </page>
+</dialog>
